@@ -2,17 +2,34 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class Login extends Component {
-    onLogin=()=>{
-        debugger
-        this.props.history.push('/comp1');
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            userName: '',
+            password: '',
+        };
+    }
+
+    handleInputChange = (e) =>
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+
+    handleSubmit = () => {
+        const { userName, password } = this.state;
+        if (userName === 'user' && password === 'user') {
+            this.props.onLogin(userName);
+            this.props.history.push('/comp1');
+        }
     }
 
     render() {
         return (
             <div className='wrapper'>
-                <label>Username: </label> <input type="text" /> <br />
-                <label>Password: </label> <input type="password" /> <br />
-                <button type="button" onClick={() => this.onLogin()}>Submit</button>
+                <label>Username: </label> <input type="text" onChange={this.handleInputChange} name='userName' /> <br />
+                <label>Password: </label> <input type="password" onChange={this.handleInputChange} name='password' /> <br />
+                <button type="button" onClick={() => this.handleSubmit()}>Submit</button>
             </div>
         );
     }
@@ -23,7 +40,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    onLogin: () => dispatch({ type: 'LOGIN' }),
+    onLogin: (data) => dispatch({ type: 'LOGIN', payload: data }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

@@ -1,10 +1,19 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const SomeComponent = () => {
+const SomeComponent = (props) => {
+  const { userName } = props;
   return (
     <div>
-      Component 1
+      Component 1 <br />
+      Hi {userName}
     </div>
   );
 }
-export default SomeComponent;
+
+const mapStateToProps = state => ({
+  userName: state.authenticatedState.userName
+});
+
+
+export default connect(mapStateToProps)(SomeComponent);

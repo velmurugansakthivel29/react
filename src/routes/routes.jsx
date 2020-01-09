@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import Login from '../login/login';
-import OtherComponent from '../OtherComponent/OtherComponent';
-import SomeComponent from '../SomeComponent/SomeComponent';
+import Login from '../components/login/login';
+import OtherComponent from '../components/OtherComponent/OtherComponent';
+import SomeComponent from '../components/SomeComponent/SomeComponent';
 import PrivateRoute from './Privateroutes';
 
 const AppRoutes = () => (
