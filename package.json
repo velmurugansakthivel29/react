@@ -1,0 +1,64 @@
+{
+  "name": "sample",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "node-sass": "4.13.0",
+    "react": "16.10.1",
+    "react-dom": "16.10.1",
+    "react-router-dom": "5.1.2",
+    "react-scripts": "3.1.2",
+    "react-redux": "^7.0.3",
+    "redux": "^4.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "start-prod": "react-scripts build",
+    "test": "react-scripts test",
+    "format": "eslint --fix src/**/*.{js,jsx} && prettier --write src/**/*.{js,jsx,scss} server/**/*.js",
+    "check-format": "pretty-quick --staged src/**/*.{js,jsx,scss} server/**/*.js"
+  },
+  "eslintConfig": {
+    "extends": "react-app",
+    "plugins": [
+      "simple-import-sort"
+    ],
+    "rules": {
+      "simple-import-sort/sort": "error",
+      "sort-imports": "off",
+      "import/order": [
+        "error",
+        {
+          "groups": [
+            "builtin",
+            "external",
+            "internal",
+            "parent",
+            "sibling",
+            "index"
+          ]
+        }
+      ]
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "babel-jest": "^24.9.0",
+    "classnames": "2.2.6",
+    "eslint-plugin-simple-import-sort": "4.0.0",
+    "prettier": "1.18.2",
+    "pretty-quick": "1.11.1"
+  },
+  "proxy": "http://localhost:8080/"
+}
